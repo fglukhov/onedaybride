@@ -349,7 +349,11 @@ $(document).ready(function () {
 
     $(this).closest("form")[0].reset();
 
-    $(this).closest("form").find(".picker__input").data( 'pickadate' ).clear();
+    if ($(this).closest("form").find(".picker__input").length) {
+
+      $(this).closest("form").find(".picker__input").data( 'pickadate' ).clear();
+
+    }
 
     $(this).closest(":checked").attr("checked",false);
 
@@ -408,7 +412,23 @@ $(document).ready(function () {
     slidesToScroll: 4,
     speed: 1000,
     infinite: false,
-    arrows: false
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 999,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      }
+    ]
   });
 
   // Catalog slider END
@@ -568,7 +588,8 @@ $(document).ready(function () {
 
   $(".menu-trigger").click(function () {
 
-    $(".header-menu").fadeIn(150);
+    $(".header-menu").fadeToggle(150);
+    $(this).toggleClass("active");
 
   });
 
@@ -619,9 +640,13 @@ $(document).ready(function () {
 
   // Catalog filter
 
-  $(".catalog-filter-trigger").click(function () {
+  $(".filter-trigger").click(function () {
 
-    $(".catalog-filter").fadeIn(200);
+    $(".catalog-filter").fadeIn(200,function () {
+
+      $(window).trigger("resize");
+
+    });
 
   });
 
@@ -631,15 +656,7 @@ $(document).ready(function () {
 
   });
 
-  $("body").on("click", function (e) {
 
-    if (!$(e.target).hasClass("catalog-filter-trigger") && !$(e.target).parents().hasClass("catalog-filter-trigger") && !$(e.target).hasClass("catalog-filter-inner") && !$(e.target).parents().hasClass("catalog-filter-inner") && $(".catalog-filter .close").css("display") == "block" && $(".catalog-filter").css("display") == "block") {
-
-      $(".catalog-filter").fadeOut(200);
-
-    }
-
-  });
 
   // Mobile END
 

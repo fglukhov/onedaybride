@@ -1392,7 +1392,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle-lower {
   color: #fff;
   padding: 0;
   width: 40px;
-  vertical-align: middle; }
+  vertical-align: middle;
+  border: none !important; }
 
 .form-checkboxes {
   display: flex;
