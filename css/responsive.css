@@ -1,0 +1,30 @@
+/* Not mobile */
+@media (min-width: 768px) {
+  #mobile-indicator {
+    display: none; }
+  .header-menu .close {
+    display: none; }
+  .menu-trigger {
+    display: none; } }
+
+/* Not mobile END */
+/* Not small */
+@media (min-width: 992px) {
+  #sm-indicator {
+    display: none; } }
+
+/* Not small END */
+/* Medium desktop */
+/* Medium desktop END */
+/* Small desktop */
+@media (max-width: 999px) {
+  #sm-indicator {
+    display: block; } }
+
+/* Small desktop END */
+/* Mobile big */
+@media (max-width: 767px) {
+  #mobile-indicator {
+    display: block; } }
+
+/* Mobile big END */
